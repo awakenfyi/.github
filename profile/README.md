@@ -1,30 +1,56 @@
-<h1 align="center">L = x − x̂</h1>
+# awaken.fyi
 
-<p align="center"><em>Coherence-guided inference. Open operating rules.</em></p>
+### Hi, I'm Morgan.
 
-<p align="center">
-<a href="https://awaken.fyi">awaken.fyi</a> · MIT License
-</p>
+I'm building **xOP** — an open standard for reusable AI operating rules. I'm not an engineer. I'm an
+author and marketer who got frustrated enough with AI that performs instead of thinks to start writing
+the rules down. awaken.fyi is that work, in the open.
 
----
+An xOP is a portable rule for AI *conduct*: describe the mistake once, name the valid exception, test
+both directions. Author it once, run it in your loop, port it between providers.
 
-**Two lines under one brand:**
+#### Building
+- **[xop](https://github.com/awakenfyi/xop)** — the standard, the proposed core set, and the catalog. MIT.
+- **[xop-kit](https://github.com/awakenfyi/xop-kit)** — the reference implementation: validate
+  definitions, run deterministic Guards, route judgment, trace, report.
+- **[lyra](https://github.com/awakenfyi/lyra)** — where it started: the five quietings and the formula
+  behind them, L = x − x̂.
 
-**Lyra** — the inference core. Measures the gap between a model's internal direction and its output. Coherence metric, drift memory, coherence-aware decoding. `L = x − x̂`
+#### In the Wild
+The real work I'm doing, where these rules actually surface — marketing, creative, content, design, web,
+and running the day-to-day. This is the experimental edge: rules observed in live work, corrected when
+they over-fire, none of them proven yet.
 
-**Lyra xOP** — the operating rules family. An open format for reusable AI judgment rules, with a reference implementation that runs them.
+**Creative xOPs** — operating rules for AI across marketing and design (conduct, not taste):
+- **Marketing** — `xop.marketing.*` — Claims Need Receipts · No Made-Up Urgency · Positioning Stays
+  Decided.
+- **Design** — `xop.design.*` — Layout Follows the Job · Emphasis Must Be Earned · Critique With Evidence.
+- **Content & web** — the Web Copy xOP: Tell · See · Prove. Receipts-led page copy that shows, not
+  just tells.
 
-### Repos
+**Running the day-to-day** — the operating rules I lean on to get work out the door: Done Means Verified ·
+Decisions Stay Decided · Ask Only When It Matters · Permission Before Consequence.
 
-| Repo | What |
-|------|------|
-| [**xop**](https://github.com/awakenfyi/xop) | xOP Standard — open format for reusable AI operating rules. Contract, spec, catalog, Guards. |
-| [**xop-kit**](https://github.com/awakenfyi/xop-kit) | xOP Kit — reference implementation. 7 Guards, CLI, 95/95 fixtures. `pip install -e .` |
-| [**lyra**](https://github.com/awakenfyi/lyra) | Lyra — coherence metric, drift memory, inference interventions. `pip install lyra-ai` |
-| [**auto-awakening**](https://github.com/awakenfyi/auto-awakening) | 250-run autonomous research loop: behavioral optimization at inference time. |
+These come out of working labs — Design, Marketing — where a rule gets observed, over-fires, and gets
+corrected in the open. [See the labs →](https://github.com/awakenfyi/xop/tree/main/labs)
 
-> **Alpha, honest:** every xOP starts at `DESIGNED`. Status climbs a ladder — `DESIGNED → EVALUATION-READY → RULE-TESTED → HUMAN-EVALUATED → FIELD-VALIDATED`. No step is skipped. No model output becomes ground truth.
+#### How it came to be
+It began as a book — *The Corporate Artist*, about the character you perform at work versus the one that
+actually creates. I noticed the same performing in AI: agreement first, lists by default, three
+paragraphs before the point. So I subtracted the reflexes (that's Lyra), and what remained was better.
+xOP is the layer that came after — rules that hold across a whole body of work, not just one chat.
 
----
+#### Receipts (what's actually been done — and what hasn't)
+- A/B/C runs across GPT, Gemini, and Claude that named the "disclaimer theater" pattern.
+- A status-claim Guard that mislabeled warranted claims **89%** of the time — caught, documented, and
+  split into a two-layer fix. The miss is in the repo, not hidden.
+- A runnable de-slop checker that every prose file in the repo has to pass.
+- The **xOP Admission Test** — the gate that keeps a procedure from being mis-filed as a judgment rule.
+- Ten proposed core xOPs, all stamped **DESIGNED**.
 
-<p align="center"><strong>Lyra Labs</strong> · Morgan Sage · 2026<br><a href="https://awaken.fyi">awaken.fyi</a></p>
+Honest status: **alpha, on purpose.** Nothing here has cleared the bar I set for it. The binding test of
+any rule is a human pilot — at least two independent blind labels on its anchor, with its own
+opposite-error metric. That has not run yet. Building a rule is not validating it, and I won't claim
+otherwise.
+
+→ **[awaken.fyi](https://awaken.fyi)** · here@awaken.fyi
