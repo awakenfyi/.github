@@ -1,38 +1,67 @@
-# Lyra Labs — awaken.fyi
+# awaken.fyi
 
-**Coherence infrastructure for the age of agents.** One formula, measured at three depths:
+**The quality gate for AI agents — testable rules for what ships, before it ships.**
 
-```
-L = x − x̂        the residual: what's actually present, minus what the default predicts
-O = x̂ − x        overhang: the part of the default that outlived what's present
-```
+Like CI for agent judgment. One folder. Red/green before release.
 
-```
- depth            x (present)              x̂ (default)             O > 0 means
- ─────────────────────────────────────────────────────────────────────────────
- activation   →   internal pull            output logits            unbacked confidence
- response     →   what the moment needs    the template             performing
- procedure    →   the present warrant      the inherited stance     overhang
+```bash
+pip install git+https://github.com/awakenfyi/xop-kit
+echo "All set — consider it booked." | xop scan -
 ```
 
-Every AI system drifts the same way: the default (`x̂`) keeps winning after the reason for it is gone. Lyra measures that drift; xOP refuses to reward it. The rule that does not move:
+---
 
-> **`false_positive_on_warranted == 0`** — never override a state that is still warranted. A system may improve only by surfacing more honestly, never by agreeing more.
+Agents don't usually fail because they can't do the work.
+They fail because they round up:
 
-## Start here
+- **"Done."** — The venue was never confirmed. The deploy never finished.
+- **"73% of customers prefer us."** — No source. They wrote it because it fit.
+- **"You're right, I'll drop that."** — It was a real objection. They caved anyway.
 
-| If you want to… | Go to |
+These are predictable. Detectable. Testable.
+
+---
+
+## The folder
+
+```
+my-agent/
+├── conduct/
+│   ├── done-means-verified.md   # can't say "done" without the receipt
+│   ├── claims-need-receipts.md  # can't ship a statistic without a source
+│   └── fixtures/
+│       ├── rule.hold.json       # case where it must hold
+│       └── rule.drop.json       # case where it must drop
+```
+
+```bash
+xop init my-agent   # scaffold the folder
+xop test            # red/green proof before ship
+```
+
+A rule without both test cases hasn't been found yet. The pair is the definition.
+
+---
+
+## Why we built this
+
+<!-- Morgan: rewrite this in your own words — one paragraph, first person, the actual moment.
+     What kept breaking? What correction kept coming back? Why a folder instead of a prompt?
+     See REPO-CLARITY-STANDARD.md for the worked example. -->
+
+---
+
+## The repos
+
+| | |
 |---|---|
-| Understand the formula in five minutes | [lyra → FORMULA.md](https://github.com/awakenfyi/lyra/blob/main/FORMULA.md) |
-| Measure coherence inside a transformer's forward pass | [lyra](https://github.com/awakenfyi/lyra) — JSD coherence, drift memory, silence permission |
-| Scan text for conduct drift right now | [xop-kit](https://github.com/awakenfyi/xop-kit) — 7 deterministic Guards, CLI, 95/95 fixtures |
-| Read the standard behind the Guards | [xop](https://github.com/awakenfyi/xop) — the contract, the gate, the governance |
-| Test a detector against blind human gold | overhang-bench *(coming — held-response-constant minimal pairs)* |
+| **[xop-kit](https://github.com/awakenfyi/xop-kit)** | The tool — scan any output, scaffold any agent, test any rule |
+| **[xop](https://github.com/awakenfyi/xop)** | The standard — what the rules mean, how they're tested, the gate |
+| **[lyra](https://github.com/awakenfyi/lyra)** | The research — measuring the gap inside the model's forward pass |
+| **[xop-labs](https://github.com/awakenfyi/xop-labs)** | Domain rules in the wild — marketing, design, more |
 
-## Where the evidence actually stands
+---
 
-We publish status honestly, per component, and the misses alongside the hits: the Guards are deterministic and rule-tested; the gate has **not yet** been validated against blind human labels; the 250-run experiment series is a self-research loop, not an independent benchmark. Every claim on every README is limited to the evidence attached to it. The evidence ladder (`DESIGNED → FIELD-VALIDATED`) never skips rungs, and no model output becomes ground truth.
-
-**Receipts, not vibes.** MIT licensed. Contributions welcome — authoring one minimal pair for the benchmark is the ideal first PR.
+*Alpha. The scanners work and are rule-tested (95/95 fixtures). The gate claim (`fp_on_warranted == 0`) requires a blind-label pilot we haven't run yet. [Receipts, not vibes.](https://github.com/awakenfyi/xop) MIT licensed.*
 
 *[awaken.fyi](https://awaken.fyi)*
